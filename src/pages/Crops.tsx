@@ -39,77 +39,60 @@ export default function Crops() {
 
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="p-6 bg-green-700 text-white">
-              <div className="flex items-center space-x-3 mb-2">
-                <Calendar className="h-6 w-6" />
-                <h2 className="text-2xl font-bold">Annual Planting Calendar</h2>
-              </div>
-              <p className="text-green-100">
-                Our crop rotation strategy maximizes land use throughout the year
-              </p>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th className="px-6 py-4 text-left font-semibold text-gray-700 sticky left-0 bg-gray-100 z-10">
-                      Crop
-                    </th>
-                    {months.map((month) => (
-                      <th key={month} className="px-4 py-4 text-center font-semibold text-gray-700 min-w-[80px]">
-                        {month}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {crops.map((crop, cropIndex) => (
-                    <tr
-                      key={crop.id}
-                      className={`border-b hover:bg-gray-50 ${cropIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
-                    >
-                      <td className="px-6 py-4 font-medium text-gray-900 sticky left-0 bg-inherit z-10">
-                        {crop.name}
-                      </td>
-                      {months.map((_, monthIndex) => {
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900">Seasonal Crop Guide</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              A visual guide to our planting and harvesting seasons.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {crops.map((crop) => (
+              <div key={crop.id} className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div className="p-6">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="flex-shrink-0">
+                      <img className="h-16 w-16 rounded-full object-cover" src={crop.imageUrl} alt={crop.name} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900">{crop.name}</h3>
+                      <p className="text-sm text-gray-500">{crop.category}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-3">Annual Cycle</h4>
+                    <div className="grid grid-cols-6 gap-1">
+                      {months.map((month, monthIndex) => {
                         const activity = getMonthActivity(crop.id, monthIndex);
+                        let bgColor = 'bg-gray-200';
+                        let textColor = 'text-gray-600';
+                        if (activity === 'planting') {
+                          bgColor = 'bg-blue-500';
+                          textColor = 'text-white';
+                        } else if (activity === 'harvest') {
+                          bgColor = 'bg-amber-500';
+                          textColor = 'text-white';
+                        }
                         return (
-                          <td key={monthIndex} className="px-4 py-4 text-center">
-                            {activity === 'planting' && (
-                              <div className="inline-flex items-center justify-center w-full">
-                                <div className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded">
-                                  Plant
-                                </div>
-                              </div>
-                            )}
-                            {activity === 'harvest' && (
-                              <div className="inline-flex items-center justify-center w-full">
-                                <div className="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded">
-                                  Harvest
-                                </div>
-                              </div>
-                            )}
-                          </td>
+                          <div key={monthIndex} className={`text-center py-1 rounded ${bgColor} ${textColor}`}>
+                            <span className="text-xs font-medium">{month}</span>
+                          </div>
                         );
                       })}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="p-6 bg-gray-50 flex items-center justify-center space-x-8">
-              <div className="flex items-center space-x-2">
-                <div className="w-4 h-4 bg-blue-100 border border-blue-300 rounded"></div>
-                <span className="text-sm text-gray-700">Planting Period</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center justify-end space-x-4">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                      <span className="text-xs text-gray-600">Planting</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 rounded-full bg-amber-500"></div>
+                      <span className="text-xs text-gray-600">Harvest</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-4 h-4 bg-amber-100 border border-amber-300 rounded"></div>
-                <span className="text-sm text-gray-700">Harvest Period</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

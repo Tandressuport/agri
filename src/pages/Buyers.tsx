@@ -26,7 +26,7 @@ export default function Buyers({ onNavigate }: BuyersProps) {
       <section
         className="relative h-80 bg-cover bg-center"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.pexels.com/photos/4021779/pexels-photo-4021779.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.pexels.com/photos/2132126/pexels-photo-2132126.jpeg?auto=compress&cs=tinysrgb&w=1920)',
         }}
       >
         <div className="absolute inset-0 flex items-center justify-center">
@@ -101,8 +101,8 @@ export default function Buyers({ onNavigate }: BuyersProps) {
             </div>
             <div>
               <img
-                src="https://images.pexels.com/photos/4021808/pexels-photo-4021808.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Handshake partnership"
+                src="https://images.pexels.com/photos/4840134/pexels-photo-4840134.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Farmer with tablet in a field of crops"
                 className="rounded-xl shadow-lg"
               />
             </div>

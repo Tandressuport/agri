@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-bold mb-4">Oklahoma Plains Agriculture</h3>
+            <h3 className="text-lg font-bold mb-4">Tandres</h3>
             <p className="text-gray-400 text-sm">
-              Maximizing land productivity by planting crops in their optimal season for quality harvests year-round.
+              An independent agricultural production company specializing in large-scale crop farming and land-stewardship partnerships.
             </p>
           </div>
 
@@ -17,15 +17,15 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-sm">
                 <MapPin className="h-4 w-4 text-green-500" />
-                <span className="text-gray-400">Oklahoma, USA</span>
+                <span className="text-gray-400">4589 Abernathy Rd, Fairfield CA 94543</span>
               </div>
               <div className="flex items-center space-x-3 text-sm">
                 <Phone className="h-4 w-4 text-green-500" />
-                <span className="text-gray-400">(405) 555-0198</span>
+                <span className="text-gray-400">(707) 555-0198</span>
               </div>
               <div className="flex items-center space-x-3 text-sm">
                 <Mail className="h-4 w-4 text-green-500" />
-                <span className="text-gray-400">info@okplainsag.com</span>
+                <span className="text-gray-400">support@tandres.online</span>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Oklahoma Plains Agriculture. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Tandres. All rights reserved.</p>
         </div>
       </div>
     </footer>

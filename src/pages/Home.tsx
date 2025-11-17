@@ -1,4 +1,4 @@
-import { Sprout, TrendingUp, Users, Award } from 'lucide-react';
+import { Sprout, TrendingUp, Users, Award, Leaf } from 'lucide-react';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -6,19 +6,19 @@ interface HomeProps {
 
 export default function Home({ onNavigate }: HomeProps) {
   const stats = [
-    { label: 'Acres Under Cultivation', value: '650+', icon: Sprout },
-    { label: 'Annual Production Volume', value: '2M+ lbs', icon: TrendingUp },
-    { label: 'Commercial Buyers', value: '40+', icon: Users },
-    { label: 'Years in Operation', value: '15+', icon: Award }
+    { label: 'Acres Under Cultivation', value: '1,000+', icon: Sprout },
+    { label: 'Active Crop Varieties', value: '12+', icon: Leaf },
+    { label: 'Annual Rotations', value: '3-4', icon: TrendingUp },
+    { label: 'Core Values', value: '6', icon: Award }
   ];
 
   const crops = [
-    { name: 'Winter Wheat', season: 'Fall-Spring' },
-    { name: 'Field Corn', season: 'Spring-Fall' },
-    { name: 'Soybeans', season: 'Late Spring-Fall' },
-    { name: 'Cover Crops', season: 'Fall-Spring' },
-    { name: 'Vegetables', season: 'Year-Round' },
-    { name: 'Specialty Crops', season: 'Spring-Fall' }
+    { name: 'Winter Wheat', season: 'Fall/Winter' },
+    { name: 'Feed Crops', season: 'Spring/Summer' },
+    { name: 'Soybeans', season: 'Spring/Summer' },
+    { name: 'Cover Crops', season: 'Year-Round' },
+    { name: 'Seasonal Vegetables', season: 'Year-Round' },
+    { name: 'Specialty Crop', season: 'Varies' }
   ];
 
   return (
@@ -32,10 +32,10 @@ export default function Home({ onNavigate }: HomeProps) {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Cultivating Excellence in Every Season
+              Excellence in Agricultural Production & Land Stewardship
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Maximizing land productivity by planting crops in their optimal season for quality harvests year-round
+              An independent agricultural production company specializing in large-scale crop farming and long-term agricultural management.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -79,9 +79,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Mission</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We are a commercial agribusiness company specializing in strategic crop production.
-              By purchasing premium seeds and planting them during optimal windows, we ensure maximum
-              yield and quality for our industrial and commercial buyers.
+              We are dedicated to delivering high-quality crops and efficient agricultural management. Our mission is to protect the long-term health, productivity, and value of the land, while our vision is to become a trusted leader in sustainable large-scale farming partnerships, known for reliability, transparency, and consistent production.
             </p>
           </div>
         </div>

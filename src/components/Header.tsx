@@ -27,7 +27,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
           >
             <Sprout className="h-10 w-10 text-green-700" />
             <div>
-              <h1 className="text-2xl font-bold text-green-800">Oklahoma Plains Agriculture</h1>
+              <h1 className="text-2xl font-bold text-green-800">Tandres</h1>
               <p className="text-sm text-gray-600">Commercial Crop Production</p>
             </div>
           </div>
