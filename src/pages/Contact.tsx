@@ -1,60 +1,6 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertTriangle, Loader } from 'lucide-react';
-import { ContactFormData } from '../types';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    company: '',
-    message: '',
-    inquiryType: 'general'
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError(null);
-
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Something went wrong. Please try again later.');
-      }
-
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        message: '',
-        inquiryType: 'general'
-      });
-
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       <section
@@ -135,125 +81,12 @@ export default function Contact() {
 
             <div>
               <div className="bg-white rounded-xl shadow-lg p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
-
-                {isSubmitted ? (
-                  <div className="text-center py-12">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
-                      <CheckCircle className="h-8 w-8 text-green-600" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You!</h3>
-                    <p className="text-gray-600">
-                      We've received your inquiry and will get back to you shortly.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {error && (
-                      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative" role="alert">
-                        <strong className="font-bold">Error: </strong>
-                        <span className="block sm:inline">{error}</span>
-                      </div>
-                    )}
-                    <fieldset disabled={isSubmitting}>
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent disabled:bg-gray-100"
-                          placeholder="John Smith"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent disabled:bg-gray-100"
-                          placeholder="john@company.com"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Company / Organization
-                        </label>
-                        <input
-                          type="text"
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent disabled:bg-gray-100"
-                          placeholder="ABC Feed Manufacturing"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="inquiryType" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Inquiry Type *
-                        </label>
-                        <select
-                          id="inquiryType"
-                          name="inquiryType"
-                          required
-                          value={formData.inquiryType}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent disabled:bg-gray-100"
-                        >
-                          <option value="general">General Inquiry</option>
-                          <option value="procurement">Crop Procurement</option>
-                          <option value="partnership">Partnership Opportunity</option>
-                          <option value="farm-visit">Farm Visit Request</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Message *
-                        </label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          required
-                          rows={5}
-                          value={formData.message}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent resize-none disabled:bg-gray-100"
-                          placeholder="Tell us about your needs or inquiry..."
-                        />
-                      </div>
-                    </fieldset>
-
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2 disabled:bg-green-400"
-                    >
-                      {isSubmitting ? (
-                        <Loader className="animate-spin h-5 w-5" />
-                      ) : (
-                        <Send className="h-5 w-5" />
-                      )}
-                      <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-                    </button>
-                  </form>
-                )}
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Us Directly</h2>
+                <p className="text-gray-700">
+                  For inquiries, please reach out to us using the contact information provided on the left.
+                  Our team is ready to assist you with any questions regarding our crops, land stewardship,
+                  or partnership opportunities.
+                </p>
               </div>
             </div>
           </div>
