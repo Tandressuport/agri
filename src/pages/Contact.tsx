@@ -81,49 +81,38 @@ export default function Contact() {
 
             <div>
               <div className="bg-white rounded-xl shadow-lg p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Us Directly</h2>
-                <p className="text-gray-700">
-                  For inquiries, please reach out to us using the contact information provided on the left.
-                  Our team is ready to assist you with any questions regarding our crops, land stewardship,
-                  or partnership opportunities.
-                </p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+                <div className="space-y-6">
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="font-bold text-gray-900 mb-2">Do you sell to individual consumers?</h3>
+                    <p className="text-gray-700">
+                      No, we operate on a commercial and wholesale basis only. Our crops are sold to
+                      industrial buyers, processors, distributors, and other commercial entities.
+                    </p>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="font-bold text-gray-900 mb-2">What are your minimum order quantities?</h3>
+                    <p className="text-gray-700">
+                      Minimum order quantities vary by crop type and season. Contact us to discuss your
+                      specific needs and we'll provide details on availability and quantities.
+                    </p>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="font-bold text-gray-900 mb-2">Can I visit the farm?</h3>
+                    <p className="text-gray-700">
+                      Yes, we welcome visits from potential buyers and partners by appointment. Please
+                      contact us in advance to schedule a visit.
+                    </p>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="font-bold text-gray-900 mb-2">How do I place an order?</h3>
+                    <p className="text-gray-700">
+                      All orders are placed through direct communication with our team. Contact us via
+                      phone or email to discuss your requirements, pricing, and delivery arrangements.
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="font-bold text-gray-900 mb-2">Do you sell to individual consumers?</h3>
-              <p className="text-gray-700">
-                No, we operate on a commercial and wholesale basis only. Our crops are sold to
-                industrial buyers, processors, distributors, and other commercial entities.
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="font-bold text-gray-900 mb-2">What are your minimum order quantities?</h3>
-              <p className="text-gray-700">
-                Minimum order quantities vary by crop type and season. Contact us to discuss your
-                specific needs and we'll provide details on availability and quantities.
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="font-bold text-gray-900 mb-2">Can I visit the farm?</h3>
-              <p className="text-gray-700">
-                Yes, we welcome visits from potential buyers and partners by appointment. Please
-                contact us in advance to schedule a visit.
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="font-bold text-gray-900 mb-2">How do I place an order?</h3>
-              <p className="text-gray-700">
-                All orders are placed through direct communication with our team. Contact us via
-                phone or email to discuss your requirements, pricing, and delivery arrangements.
-              </p>
             </div>
           </div>
         </div>
